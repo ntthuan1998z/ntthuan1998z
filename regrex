@@ -1,0 +1,2 @@
+Rerex not accept special characters next to each other
+^((?![-+._]{2,}).)*$
