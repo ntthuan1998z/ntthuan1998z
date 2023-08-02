@@ -1,0 +1,37 @@
+#.bat
+
+@ECHO OFF
+ECHO ━━━━━━━━━━━━━━━━━━━━━━━
+ECHO MsBuildを実行します。
+ECHO ───────────────────────
+ECHO sample.projというビルドファイルを、
+ECHO 読み込み、srcフォルダ配下の*.csファイルを
+ECHO コンパイルし、このフォルダにMsBuildSample.exeを生成します。
+ECHO その後、アプリが起動しますので、ウィンドウを閉じてください。
+ECHO 最後に完了メッセージを表示してビルドが完了します。
+ECHO ━━━━━━━━━━━━━━━━━━━━━━━
+@ECHO ON
+rd /s /q .\bin
+rem C:\WINDOWS\Microsoft.NET\Framework\v4.0.30319\MSBuild vssget.proj
+rem C:\WINDOWS\Microsoft.NET\Framework\v4.0.30319\MSBuild all.proj /p:Configuration=Debug /ToolsVersion:14.0
+if "%PROCESSOR_ARCHITECTURE%" EQU "x86" (
+  "C:\Program Files\MSBuild\14.0\Bin\MSBuild" all.proj /p:Configuration=Debug
+)
+
+if "%PROCESSOR_ARCHITECTURE%" NEQ "x86" (
+
+  "C:\Program Files (x86)\MSBuild\14.0\Bin\MSBuild" all.proj /p:Configuration=Debug
+)
+pause
+
+#.proj
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="CompileAll"  xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    #list project
+    <Projects Include="D:\anycube-neo\application\POS\SOURCE\Device\ShareDeviceCommon\ShareDeviceCommon\ShareDeviceCommon.csproj" Exclude="" />
+  </ItemGroup>
+  <Target Name="CompileAll">
+    <MSBuild Projects="@(Projects)" />
+  </Target>
+</Project>
