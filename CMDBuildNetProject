@@ -2,13 +2,6 @@
 
 @ECHO OFF
 ECHO ━━━━━━━━━━━━━━━━━━━━━━━
-ECHO MsBuildを実行します。
-ECHO ───────────────────────
-ECHO sample.projというビルドファイルを、
-ECHO 読み込み、srcフォルダ配下の*.csファイルを
-ECHO コンパイルし、このフォルダにMsBuildSample.exeを生成します。
-ECHO その後、アプリが起動しますので、ウィンドウを閉じてください。
-ECHO 最後に完了メッセージを表示してビルドが完了します。
 ECHO ━━━━━━━━━━━━━━━━━━━━━━━
 @ECHO ON
 rd /s /q .\bin
