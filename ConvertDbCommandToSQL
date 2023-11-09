@@ -1,0 +1,32 @@
+using System;
+using System.Data.SqlClient;
+using System.Text.RegularExpressions;
+
+namespace GetQueryFromDbCommand // Note: actual namespace depends on the project name.
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            var regex = new Regex("{(.*?)}");
+            string commnandSql = "Executed DbCommand (7ms) [Parameters=[@p0='2023-11-09T17:54:44' (DbType = DateTime), @p1='380' (Nullable = true), @p2='RolePermissionSetting' (Nullable = false), @p3='False', @p4='Brands' (Nullable = false), @p5='1' (Nullable = true), @p6='106', @p7='2023-11-09T17:54:44' (DbType = DateTime), @p8='380' (Nullable = true), @p9='RolePermissionSetting' (Nullable = false), @p10='False', @p11='Merchants' (Nullable = false), @p12='1' (Nullable = true), @p13='106', @p14='2023-11-09T17:54:44' (DbType = DateTime), @p15='380' (Nullable = true), @p16='RolePermissionSetting' (Nullable = false), @p17='False', @p18='Brands.Create' (Nullable = false), @p19='1' (Nullable = true), @p20='106', @p21='2023-11-09T17:54:44' (DbType = DateTime), @p22='380' (Nullable = true), @p23='RolePermissionSetting' (Nullable = false), @p24='False', @p25='Brands.Update' (Nullable = false), @p26='1' (Nullable = true), @p27='106', @p28='2023-11-09T17:54:44' (DbType = DateTime), @p29='380' (Nullable = true), @p30='RolePermissionSetting' (Nullable = false), @p31='False', @p32='Brands.Delete' (Nullable = false), @p33='1' (Nullable = true), @p34='106', @p35='2023-11-09T17:54:44' (DbType = DateTime), @p36='380' (Nullable = true), @p37='RolePermissionSetting' (Nullable = false), @p38='False', @p39='Brands.Import' (Nullable = false), @p40='1' (Nullable = true), @p41='106', @p42='2023-11-09T17:54:44' (DbType = DateTime), @p43='380' (Nullable = true), @p44='RolePermissionSetting' (Nullable = false), @p45='False', @p46='Legals.Create' (Nullable = false), @p47='1' (Nullable = true), @p48='106', @p49='2023-11-09T17:54:44' (DbType = DateTime), @p50='380' (Nullable = true), @p51='RolePermissionSetting' (Nullable = false), @p52='False', @p53='Merchants.Create' (Nullable = false), @p54='1' (Nullable = true), @p55='106', @p56='2023-11-09T17:54:44' (DbType = DateTime), @p57='380' (Nullable = true), @p58='RolePermissionSetting' (Nullable = false), @p59='False', @p60='Merchants.Update' (Nullable = false), @p61='1' (Nullable = true), @p62='106', @p63='2023-11-09T17:54:44' (DbType = DateTime), @p64='380' (Nullable = true), @p65='RolePermissionSetting' (Nullable = false), @p66='False', @p67='Merchants.Delete' (Nullable = false), @p68='1' (Nullable = true), @p69='106', @p70='2023-11-09T17:54:44' (DbType = DateTime), @p71='380' (Nullable = true), @p72='RolePermissionSetting' (Nullable = false), @p73='False', @p74='Merchants.Import' (Nullable = false), @p75='1' (Nullable = true), @p76='106'], CommandType='Text', CommandTimeout='30']\r\nINSERT INTO \"AbpPermissions\" (\"CreationTime\", \"CreatorUserId\", \"Discriminator\", \"IsGranted\", \"Name\", \"TenantId\", \"RoleId\")\r\nVALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6)\r\nRETURNING \"Id\";\r\nINSERT INTO \"AbpPermissions\" (\"CreationTime\", \"CreatorUserId\", \"Discriminator\", \"IsGranted\", \"Name\", \"TenantId\", \"RoleId\")\r\nVALUES (@p7, @p8, @p9, @p10, @p11, @p12, @p13)\r\nRETURNING \"Id\";\r\nINSERT INTO \"AbpPermissions\" (\"CreationTime\", \"CreatorUserId\", \"Discriminator\", \"IsGranted\", \"Name\", \"TenantId\", \"RoleId\")\r\nVALUES (@p14, @p15, @p16, @p17, @p18, @p19, @p20)\r\nRETURNING \"Id\";\r\nINSERT INTO \"AbpPermissions\" (\"CreationTime\", \"CreatorUserId\", \"Discriminator\", \"IsGranted\", \"Name\", \"TenantId\", \"RoleId\")\r\nVALUES (@p21, @p22, @p23, @p24, @p25, @p26, @p27)\r\nRETURNING \"Id\";\r\nINSERT INTO \"AbpPermissions\" (\"CreationTime\", \"CreatorUserId\", \"Discriminator\", \"IsGranted\", \"Name\", \"TenantId\", \"RoleId\")\r\nVALUES (@p28, @p29, @p30, @p31, @p32, @p33, @p34)\r\nRETURNING \"Id\";\r\nINSERT INTO \"AbpPermissions\" (\"CreationTime\", \"CreatorUserId\", \"Discriminator\", \"IsGranted\", \"Name\", \"TenantId\", \"RoleId\")\r\nVALUES (@p35, @p36, @p37, @p38, @p39, @p40, @p41)\r\nRETURNING \"Id\";\r\nINSERT INTO \"AbpPermissions\" (\"CreationTime\", \"CreatorUserId\", \"Discriminator\", \"IsGranted\", \"Name\", \"TenantId\", \"RoleId\")\r\nVALUES (@p42, @p43, @p44, @p45, @p46, @p47, @p48)\r\nRETURNING \"Id\";\r\nINSERT INTO \"AbpPermissions\" (\"CreationTime\", \"CreatorUserId\", \"Discriminator\", \"IsGranted\", \"Name\", \"TenantId\", \"RoleId\")\r\nVALUES (@p49, @p50, @p51, @p52, @p53, @p54, @p55)\r\nRETURNING \"Id\";\r\nINSERT INTO \"AbpPermissions\" (\"CreationTime\", \"CreatorUserId\", \"Discriminator\", \"IsGranted\", \"Name\", \"TenantId\", \"RoleId\")\r\nVALUES (@p56, @p57, @p58, @p59, @p60, @p61, @p62)\r\nRETURNING \"Id\";\r\nINSERT INTO \"AbpPermissions\" (\"CreationTime\", \"CreatorUserId\", \"Discriminator\", \"IsGranted\", \"Name\", \"TenantId\", \"RoleId\")\r\nVALUES (@p63, @p64, @p65, @p66, @p67, @p68, @p69)\r\nRETURNING \"Id\";\r\nINSERT INTO \"AbpPermissions\" (\"CreationTime\", \"CreatorUserId\", \"Discriminator\", \"IsGranted\", \"Name\", \"TenantId\", \"RoleId\")\r\nVALUES (@p70, @p71, @p72, @p73, @p74, @p75, @p76)\r\nRETURNING \"Id\";";
+            int pFrom = commnandSql.IndexOf("Parameters=[") + "Parameters=".Length;
+            int pTo = commnandSql.LastIndexOf("], CommandType=");
+
+            String paramsString = commnandSql.Substring(pFrom, pTo - pFrom);
+            String queryString = commnandSql.Substring(commnandSql.Length -pTo);
+            var paramsArray = paramsString.Split(",").OrderByDescending(s => s);
+            //Console.WriteLine(queryString);
+
+            foreach (var p in paramsArray)
+            {
+                var pValue = p.Trim().Split(new char[] { '\'', '\'' }, StringSplitOptions.RemoveEmptyEntries);
+
+                //Console.WriteLine($"{ p} => {pValue[0].Trim(new Char[] { '=' })} => {pValue[1]}");
+
+                queryString = queryString.Replace(pValue[0].Trim(new Char[] { '=' }), $"'{pValue[1]}'");
+            }
+            Console.WriteLine(queryString);
+        }
+    }
+}
