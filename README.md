@@ -7,6 +7,8 @@ https://docs.microsoft.com/en-us/aspnet/core/getting-started/?view=aspnetcore-5.
 Document Dependency Injection
 https://tedu.com.vn/lap-trinh-aspnet-core/co-che-dependency-injection-trong-aspnet-core-256.html
 
+Convert to sql: https://dotnetfiddle.net/CH6kmF
+
 <!---
 ntthuan1998z/ntthuan1998z is a ✨ special ✨ repository because its `README.md` (this file) appears on your GitHub profile.
 You can click the Preview link to take a look at your changes.
