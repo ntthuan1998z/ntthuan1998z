@@ -43,3 +43,13 @@ config for powemode vscode
     // "powermode.explosions.customCss": {
     //     "mix-blend-mode": "color-dodge",
     // },
+#Identity Server 4
+Is the client a traditional web application executing on the server? Use the [Authorization Code Flow](https://auth0.com/docs/flows#authorization-code-flow).
+
+Is the client a Single-Page Application (SPA)? Use [Authorization Code Flow with Proof Key for Code Exchange (PKCE).](https://auth0.com/docs/flows#authorization-code-flow-with-proof-key-for-code-exchange-pkce-)
+
+Is the client a Single-Page Application (SPA) that doesn't need an access token? Use [the Implicit Flow with Form Post](https://auth0.com/docs/flows#implicit-flow-with-form-post).
+
+Is the client the resource owner? You may use [the Client Credentials Flow](https://auth0.com/docs/flows#client-credentials-flow).
+
+Is the client absolutely trusted with user credentials? You may [use the Resource Owner Password Flow](https://auth0.com/docs/flows#resource-owner-password-flow)https://auth0.com/docs/flows#resource-owner-password-flow.
