@@ -1,2 +1,13 @@
 Rerex not accept special characters next to each other
 ^((?![-+._]{2,}).)*$
+
+--Regex check email, phone
+(SELECT "EmailAddress", "PhoneNumber", 'InvalidEmailAddress' AS "Error"
+FROM "AbpUsers"
+WHERE "UserType" = 0 AND "IsDeleted" = false AND "IsActive" = true
+AND "EmailAddress" <> '' AND "EmailAddress" !~ '^[a-zA-Z0-9_.+\-]+@[a-zA-Z0-9\-]+\.[a-zA-Z0-9\-.]+$')
+UNION
+(SELECT "EmailAddress", "PhoneNumber", 'InvalidPhoneNumber' AS "Error"
+FROM "AbpUsers"
+WHERE "UserType" = 0 AND "IsDeleted" = false AND "IsActive" = true
+AND "PhoneNumber" <> '' AND "PhoneNumber" !~ '^(?:0)(?:\d){9}$')
