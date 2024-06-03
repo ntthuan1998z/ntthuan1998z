@@ -1,6 +1,9 @@
 # Template Free for wordpress
 https://accesspressthemes.com/theme-demos/?theme=zigcy-lite
 
+# HTTP Status code documents
+http://www.codetinkerer.com/2015/12/04/choosing-an-http-status-code.html
+
 # Document ASPNET CORE
 https://docs.microsoft.com/en-us/aspnet/core/getting-started/?view=aspnetcore-5.0&tabs=windows
 
