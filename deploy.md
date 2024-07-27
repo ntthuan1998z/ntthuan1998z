@@ -15,22 +15,32 @@ git clone https://<username>:<token>@github.com/username/repository.git
 ## Tham khảo
 https://sinhnx.dev/lap-trinh/asp-net-core-nginx-ubuntu
 
-### Docker [Docker Install](https://azdigi.com/blog/linux-server/tools/huonng-dan-cai-dat-docker-tren-ubuntu-22-04/)
-- Cài đặt gói hỗ trợ HTTPS.
-  
-   `sudo apt install apt-transport-https ca-certificates curl software-properties-common`
-  
-- Thêm khóa GPG của kho lưu trữ Docker.
-  
-  `curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg`
-  
-- Thêm kho lưu trữ Docker của Ubuntu 22.04 ( jammy) vào các apt sources.
-  
-  `echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null`
-  
-- Cập nhật packages và thiết lập để cài đặt Docker từ kho lưu trữ chính thức.
-  
-  `sudo apt update`
-  `sudo apt-cache policy docker-ce`
-- Cài đặt Docker
-  `sudo apt install docker-ce -y`
+### Docker [Docker Install](https://docs.docker.com/engine/install/ubuntu/)
+1. Uninstall all conflicting packages:
+```sh
+for pkg in docker.io docker-doc docker-compose docker-compose-v2 podman-docker containerd runc; do sudo apt-get remove $pkg; done
+```
+2. Set up Docker's apt repository:
+```sh
+# Add Docker's official GPG key:
+sudo apt-get update
+sudo apt-get install ca-certificates curl
+sudo install -m 0755 -d /etc/apt/keyrings
+sudo curl -fsSL https://download.docker.com/linux/ubuntu/gpg -o /etc/apt/keyrings/docker.asc
+sudo chmod a+r /etc/apt/keyrings/docker.asc
+
+# Add the repository to Apt sources:
+echo \
+  "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.asc] https://download.docker.com/linux/ubuntu \
+  $(. /etc/os-release && echo "$VERSION_CODENAME") stable" | \
+  sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
+sudo apt-get update
+```
+3. Install the Docker packages.
+```sh
+sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
+```
+4. Verify
+```sh
+sudo docker run hello-world
+```
