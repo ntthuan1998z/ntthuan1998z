@@ -14,3 +14,23 @@ git clone https://<username>:<token>@github.com/username/repository.git
 
 ## Tham khảo
 https://sinhnx.dev/lap-trinh/asp-net-core-nginx-ubuntu
+
+### Docker [Docker Install](https://azdigi.com/blog/linux-server/tools/huonng-dan-cai-dat-docker-tren-ubuntu-22-04/)
+- Cài đặt gói hỗ trợ HTTPS.
+  
+   `sudo apt install apt-transport-https ca-certificates curl software-properties-common`
+  
+- Thêm khóa GPG của kho lưu trữ Docker.
+  
+  `curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg`
+  
+- Thêm kho lưu trữ Docker của Ubuntu 22.04 ( jammy) vào các apt sources.
+  
+  `echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null`
+  
+- Cập nhật packages và thiết lập để cài đặt Docker từ kho lưu trữ chính thức.
+  
+  `sudo apt update`
+  `sudo apt-cache policy docker-ce`
+- Cài đặt Docker
+  `sudo apt install docker-ce -y`
