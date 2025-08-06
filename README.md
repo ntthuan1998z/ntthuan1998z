@@ -1,3 +1,6 @@
+# Git remove commited files in .gitignore
+`git ls-files --ignored --exclude-standard | xargs git rm --cached`
+
 # Template Free for wordpress
 https://accesspressthemes.com/theme-demos/?theme=zigcy-lite
 
