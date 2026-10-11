@@ -1,0 +1,75 @@
+name: Update profile activity
+
+on:
+  schedule:
+    - cron: '23 0 * * *'
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/profile-assets.yml'
+
+permissions:
+  contents: write
+
+concurrency:
+  group: profile-assets
+  cancel-in-progress: false
+
+jobs:
+  generate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - name: Check out the profile
+        uses: actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a
+        with:
+          ref: main
+
+      - name: Generate public GitHub stats
+        uses: stats-organization/github-readme-stats-action@2c498845f71017821efaad14293ebc736156ef21
+        with:
+          card: stats
+          options: username=${{ github.repository_owner }}&show_icons=true&rank_icon=github&card_width=495&custom_title=GitHub%20Stats&bg_color=0D1727&border_color=24354D&title_color=5EEAD4&text_color=B8C6D9&icon_color=60A5FA&ring_color=60A5FA&border_radius=12&disable_animations=true
+          path: assets/github-stats.svg
+          token: ${{ secrets.GITHUB_TOKEN }}
+          fail_on_error: true
+
+      - name: Generate contribution streak
+        uses: DenverCoder1/github-readme-streak-stats@9d9349d07184e2d3fa541a221d6a2f752c0ee285
+        with:
+          options: user=${{ github.repository_owner }}&background=0D1727&border=24354D&stroke=24354D&ring=5EEAD4&fire=5EEAD4&currStreakNum=F1F5F9&sideNums=F1F5F9&currStreakLabel=5EEAD4&sideLabels=B8C6D9&dates=94A8C1&border_radius=12&card_width=495&card_height=195&disable_animations=true
+          path: assets/github-streak.svg
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Generate contribution snake
+        uses: Platane/snk/svg-only@a041d6c27ba561a39f5be9c26a784812765e434b
+        with:
+          github_user_name: ${{ github.repository_owner }}
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          outputs: |
+            assets/github-snake.svg?color_snake=#0D9488&color_dots=#EBEDF0,#CCFBF1,#5EEAD4,#14B8A6,#0F766E
+            assets/github-snake-dark.svg?palette=github-dark&color_snake=#5EEAD4&color_dots=#161B22,#123D3C,#166E64,#2DBBA5,#5EEAD4
+
+      - name: Publish generated images
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          for image in assets/github-stats.svg assets/github-streak.svg assets/github-snake.svg assets/github-snake-dark.svg; do
+            test -s "$image"
+            grep -q '<svg' "$image"
+            if grep -Eiq 'Something went wrong|Error Fetching|Error fetching|Invalid username|Could not fetch' "$image"; then
+              echo "Image generation failed: $image"
+              exit 1
+            fi
+          done
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add assets/github-stats.svg assets/github-streak.svg assets/github-snake.svg assets/github-snake-dark.svg
+          if git diff --staged --quiet; then
+            echo 'Profile images are already up to date.'
+            exit 0
+          fi
+          git commit -m 'Update profile activity images'
+          git pull --rebase origin main
+          git push origin HEAD:main
