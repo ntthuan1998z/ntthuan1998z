@@ -1,28 +1,41 @@
-# Git remove commited files in .gitignore
-`git ls-files --ignored --exclude-standard | xargs git rm --cached`
+<p align="center">
+  <img src="./assets/profile-banner.svg" alt="Nguyễn Thái Thuận — web development with .NET and React" width="100%" />
+</p>
 
-# Template Free for wordpress
-https://accesspressthemes.com/theme-demos/?theme=zigcy-lite
+<p align="center">
+  <a href="https://github.com/ntthuan1998z?tab=repositories"><strong>Explore my repositories</strong></a>
+  &nbsp; · &nbsp;
+  <a href="https://github.com/ntthuan1998z/ntthuan1998z/blob/main/dev-notes.md">Developer notes</a>
+</p>
 
-# HTTP Status code documents
-http://www.codetinkerer.com/2015/12/04/choosing-an-http-status-code.html
+### Hi, I'm Thuận
 
-# Document ASPNET CORE
-https://docs.microsoft.com/en-us/aspnet/core/getting-started/?view=aspnetcore-5.0&tabs=windows
+I build web applications with **C# / .NET** and **React / TypeScript**. My projects explore authentication, web interfaces, and tools that make development easier.
 
-# Document Dependency Injection
-https://tedu.com.vn/lap-trinh-aspnet-core/co-che-dependency-injection-trong-aspnet-core-256.html
+### Working with
 
-# Convert to sql: https://dotnetfiddle.net/CH6kmF
+| Backend & identity | Frontend |
+| :--- | :--- |
+| C# · .NET · ASP.NET Core | React · TypeScript · Vite |
+| OpenID Connect · OpenIddict | Tailwind CSS · Radix UI |
 
-# Identity Server 4
+### Selected projects
 
-Is the client a traditional web application executing on the server? Use the [Authorization Code Flow](https://auth0.com/docs/flows#authorization-code-flow).
+| Project | What you'll find | Stack |
+| :--- | :--- | :--- |
+| **[Auther](https://github.com/ntthuan1998z/Auther)** | An identity server with a UI, built around OpenID Connect and OpenIddict. | C# · .NET |
+| **[gippi-portal](https://github.com/ntthuan1998z/gippi-portal)** | A React web portal with TypeScript, Vite, and reusable UI components. | React · TypeScript · Tailwind CSS |
+| **[FindReferences](https://github.com/ntthuan1998z/FindReferences)** | A utility for inspecting .NET project references and exporting dependency information. | C# |
 
-Is the client a Single-Page Application (SPA)? Use [Authorization Code Flow with Proof Key for Code Exchange (PKCE).](https://auth0.com/docs/flows#authorization-code-flow-with-proof-key-for-code-exchange-pkce-)
+### Notes & experiments
 
-Is the client a Single-Page Application (SPA) that doesn't need an access token? Use [the Implicit Flow with Form Post](https://auth0.com/docs/flows#implicit-flow-with-form-post).
+I also keep practical references and snippets here:
 
-Is the client the resource owner? You may use [the Client Credentials Flow](https://auth0.com/docs/flows#client-credentials-flow).
+- **[Developer notes](https://github.com/ntthuan1998z/ntthuan1998z/blob/main/dev-notes.md)** — Git, ASP.NET Core, dependency injection, SQL, and authentication references.
+- **[Deployment notes](https://github.com/ntthuan1998z/ntthuan1998z/blob/main/deploy.md)** — .NET on Ubuntu, Docker, and server setup.
 
-Is the client absolutely trusted with user credentials? You may [use the Resource Owner Password Flow](https://auth0.com/docs/flows#resource-owner-password-flow)https://auth0.com/docs/flows#resource-owner-password-flow.
+---
+
+<p align="center">
+  <sub>Thanks for stopping by. Take a look around and explore what I'm building.</sub>
+</p>
